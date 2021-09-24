@@ -93,16 +93,19 @@ const settingList = [
 		title: '角色管理',
 		icon: 'UserOutlined',
 		dec: '这里是角色管理',
+		path: '/system',
 	},
 	{
 		title: '商品管理',
 		icon: 'SkinOutlined',
 		dec: '这里是商品管理',
+		path: '/system',
 	},
 	{
 		title: '用户管理',
 		icon: 'TeamOutlined',
 		dec: '这里是用户管理',
+		path: '/system',
 	},
 ]
 // 个人中心列表
@@ -153,8 +156,10 @@ const MenuGroup = (data) => {
 							className={styles['menu-item-wrap']}
 							key={item.title}
 							icon={item.icon && React.createElement(Icons[item.icon])}>
-							{item.title}
-							{item.dec && <div className={styles['dec']}>{item.dec}</div>}
+							<Link to={item.path}>
+								{item.title}
+								{item.dec && <div className={styles['dec']}>{item.dec}</div>}
+							</Link>
 						</Menu.Item>
 					)
 				})}
@@ -191,13 +196,13 @@ const Home = () => {
 		<Layout className='layout-wrap'>
 			<Sider>
 				<div className={styles['logo']} />
-				<Menu theme='dark' mode='inline' defaultSelectedKeys={['4']}>
+				<Menu theme='dark' mode='inline'>
 					{menuItem(menuList)}
 				</Menu>
 			</Sider>
 			<Layout>
-				<Header className={styles['site-layout-sub-header-background']}>
-					<Row>
+				<Header className='header-wrap'>
+					<Row className={styles['row-wrap']}>
 						<Col span={12} offset={12}>
 							<Space size={40} className={styles['space-wrap']}>
 								<Tooltip title='意见反馈'>
