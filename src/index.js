@@ -9,8 +9,9 @@ import './assets/css/reset.css'
 import zhCN from 'antd/lib/locale/zh_CN'
 import { ConfigProvider } from 'antd'
 
-import Home from './pages/Home'
 import Login from './pages/Login'
+import Home from './pages/Home'
+import Feedback from './pages/Feedback'
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 			<Switch>
 				<Route exact path='/' component={Login} />
 				<Route path='/home' component={Home} />
+				<Route path='/feedback' component={Feedback} />
 			</Switch>
 		</Router>
 	)

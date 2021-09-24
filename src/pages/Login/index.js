@@ -52,8 +52,8 @@ const Login = (props) => {
 	}
 
 	return (
-		<Layout className={styles['layout']}>
-			<Header className={styles['header']}>Header</Header>
+		<Layout className='layout-wrap'>
+			<Header className='header-wrap'>Header</Header>
 			<Content className={styles['container']}>
 				<Row
 					className={styles['row-wrap']}
@@ -68,13 +68,7 @@ const Login = (props) => {
 					</Col>
 					<Col span={10}>
 						<Card title='登陆' style={{ width: 400 }}>
-							<Form
-								className={styles['form-wrap']}
-								name='basic'
-								size='large'
-								autoComplete='off'
-								initialValues={formData}
-								onFinish={toSubmit}>
+							<Form size='large' initialValues={formData} onFinish={toSubmit}>
 								<Form.Item name='username' rules={rules.username}>
 									<Input
 										prefix={<UserOutlined className='site-form-item-icon' />}
@@ -88,12 +82,14 @@ const Login = (props) => {
 									/>
 								</Form.Item>
 								<Form.Item>
-									<Form.Item name='remember' valuePropName='checked' noStyle>
-										<Checkbox>记住密码</Checkbox>
-									</Form.Item>
-									<Button type='text' size='small'>
-										找回密码
-									</Button>
+									<div className={styles['online-between']}>
+										<Form.Item name='remember' valuePropName='checked' noStyle>
+											<Checkbox>记住密码</Checkbox>
+										</Form.Item>
+										<Button type='text' size='small'>
+											找回密码
+										</Button>
+									</div>
 								</Form.Item>
 								<Form.Item>
 									<Button type='primary' htmlType='submit' block>
@@ -105,7 +101,7 @@ const Login = (props) => {
 					</Col>
 				</Row>
 			</Content>
-			<Footer className={styles['footer']}>Footer</Footer>
+			<Footer className='footer-wrap'>Footer</Footer>
 		</Layout>
 	)
 }

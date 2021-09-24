@@ -188,7 +188,7 @@ const menuItem = (data) => {
 
 const Home = () => {
 	return (
-		<Layout className={styles['layout']}>
+		<Layout className='layout-wrap'>
 			<Sider>
 				<div className={styles['logo']} />
 				<Menu theme='dark' mode='inline' defaultSelectedKeys={['4']}>
@@ -201,7 +201,9 @@ const Home = () => {
 						<Col span={12} offset={12}>
 							<Space size={40} className={styles['space-wrap']}>
 								<Tooltip title='意见反馈'>
-									<MailOutlined style={{ fontSize: '20px' }} />
+									<Link to='/feedback'>
+										<MailOutlined style={{ fontSize: '20px' }} />
+									</Link>
 								</Tooltip>
 								<Dropdown overlay={menu(newList)} placement='bottomCenter'>
 									<Badge count={5}>
@@ -224,8 +226,8 @@ const Home = () => {
 						</Col>
 					</Row>
 				</Header>
-				<Content className={styles['content-wrap']}>
-					<div className={styles['site-layout-background']}>content</div>
+				<Content className='content-wrap'>
+					<div>content</div>
 				</Content>
 			</Layout>
 		</Layout>
