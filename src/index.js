@@ -13,6 +13,7 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import System from './pages/System'
 import Feedback from './pages/Feedback'
+import News from './pages/News'
 
 const App = () => {
 	return (
@@ -22,6 +23,7 @@ const App = () => {
 				<Route path='/home' component={Home} />
 				<Route path='/system' component={System} />
 				<Route path='/feedback' component={Feedback} />
+				<Route path='/news' component={News} />
 			</Switch>
 		</Router>
 	)

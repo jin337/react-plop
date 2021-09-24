@@ -73,38 +73,50 @@ const menuList = [
 	},
 ]
 // 消息列表
-const newList = [
+const newsList = [
 	{
 		key: 1,
 		title: '未读消息',
 		icon: 'BulbOutlined',
-		path: '',
+		path: '/news',
 	},
 	{
 		key: 2,
 		title: '已读消息',
 		icon: 'BarsOutlined',
-		path: '',
+		path: '/news',
 	},
 ]
 // 设置列表
 const settingList = [
 	{
 		title: '角色管理',
-		icon: 'UserOutlined',
+		icon: 'IdcardFilled',
 		dec: '这里是角色管理',
 		path: '/system',
 	},
 	{
-		title: '商品管理',
-		icon: 'SkinOutlined',
-		dec: '这里是商品管理',
+		title: '员工管理',
+		icon: 'ScheduleFilled',
+		dec: '这里是员工管理',
 		path: '/system',
 	},
 	{
-		title: '用户管理',
-		icon: 'TeamOutlined',
-		dec: '这里是用户管理',
+		title: '机构管理',
+		icon: 'LayoutFilled',
+		dec: '这里是机构管理',
+		path: '/system',
+	},
+	{
+		title: '大楼管理',
+		icon: 'DatabaseFilled',
+		dec: '这里是大楼管理',
+		path: '/system',
+	},
+	{
+		title: '字典管理',
+		icon: 'ReadFilled',
+		dec: '这里是字典管理',
 		path: '/system',
 	},
 ]
@@ -210,7 +222,7 @@ const Home = () => {
 										<MailOutlined style={{ fontSize: '20px' }} />
 									</Link>
 								</Tooltip>
-								<Dropdown overlay={menu(newList)} placement='bottomCenter'>
+								<Dropdown overlay={menu(newsList)} placement='bottomCenter'>
 									<Badge count={5}>
 										<BellOutlined style={{ fontSize: '20px' }} />
 									</Badge>
@@ -222,7 +234,7 @@ const Home = () => {
 								</Dropdown>
 								<Divider type='vertical' />
 								<Dropdown overlay={menu(userList)} placement='bottomRight'>
-									<div>
+									<div className={styles['user-wrap']}>
 										<Avatar icon={<UserOutlined />} />
 										<span className={styles['user-name']}>user</span>
 									</div>

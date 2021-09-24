@@ -5,7 +5,7 @@ import * as Icons from '@ant-design/icons'
 import {
 	CloseCircleOutlined,
 	UserOutlined,
-	SettingOutlined,
+	BellOutlined,
 } from '@ant-design/icons'
 const { Header, Content, Sider } = Layout
 const { SubMenu } = Menu
@@ -13,24 +13,12 @@ const { SubMenu } = Menu
 // 导航列表
 const menuList = [
 	{
-		title: '角色管理',
-		icon: 'IdcardFilled',
+		title: '未读消息',
+		icon: 'AlertFilled',
 	},
 	{
-		title: '员工管理',
-		icon: 'ScheduleFilled',
-	},
-	{
-		title: '机构管理',
-		icon: 'LayoutFilled',
-	},
-	{
-		title: '大楼管理',
-		icon: 'DatabaseFilled',
-	},
-	{
-		title: '字典管理',
-		icon: 'ReadFilled',
+		title: '已读消息',
+		icon: 'BulbOutlined',
 	},
 ]
 
@@ -79,8 +67,8 @@ const System = (props) => {
 					</div>
 					<Divider orientation='left'>
 						<Space>
-							<SettingOutlined />
-							<span>设置管理</span>
+							<BellOutlined />
+							<span>消息管理</span>
 						</Space>
 					</Divider>
 					<Menu mode='inline' className={styles['menu-wrap']}>
