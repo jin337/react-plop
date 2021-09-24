@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+// 重置全局样式
+import 'antd/dist/antd.css'
+import './assets/css/reset.css'
+
+// 国际化
+import zhCN from 'antd/lib/locale/zh_CN'
+import { ConfigProvider } from 'antd'
+
+import Home from './pages/Home'
+import Login from './pages/Login'
+
+const App = () => {
+	return (
+		<Router>
+			<Switch>
+				<Route exact path='/' component={Login} />
+				<Route path='/home' component={Home} />
+			</Switch>
+		</Router>
+	)
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+	<ConfigProvider locale={zhCN}>
+		<App />
+	</ConfigProvider>,
+	document.getElementById('root')
+)

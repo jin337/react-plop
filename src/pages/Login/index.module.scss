@@ -1,0 +1,23 @@
+.layout {
+  width: 100%;
+  height: 100%;
+}
+.content-wrap {
+  margin: 16px;
+}
+.container {
+  background-color: #11325b;
+}
+.header,
+.footer {
+  text-align: center;
+  background: #fff;
+}
+.row-wrap {
+  height: 100%;
+}
+.form-wrap {
+  :global(.ant-btn-link) {
+    float: right;
+  }
+}
