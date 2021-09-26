@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
 	Layout,
@@ -27,24 +27,34 @@ const { Header, Content, Sider } = Layout
 // 导航列表
 const menuList = [
 	{
+		key: 1,
 		title: '首页',
 		icon: 'HomeOutlined',
+		path: '/home/index',
 	},
 	{
+		key: 2,
 		title: '商品',
 		icon: 'AppstoreOutlined',
+		path: '/home',
 	},
 	{
+		key: 3,
 		title: '用户管理',
 		icon: 'UserOutlined',
+		path: '/home',
 	},
 	{
+		key: 4,
 		title: '角色管理',
 		icon: 'SafetyCertificateOutlined',
+		path: '/home',
 	},
 	{
+		key: 5,
 		title: '图形图表',
 		icon: 'AreaChartOutlined',
+		path: '/home',
 	},
 ]
 // 消息列表
@@ -114,9 +124,9 @@ const userList = [
 	},
 ]
 // 单行下拉导航模板
-const menuItem = (data, theme) => {
+const menuItem = (data) => {
 	return (
-		<Menu theme={theme} mode='inline'>
+		<Menu>
 			{data.map((item) => {
 				return (
 					<Menu.Item
@@ -152,12 +162,33 @@ const MenuGroup = (data) => {
 	)
 }
 
-const Home = () => {
+const Home = (props) => {
+	const [current, setCurrent] = useState(props.match.params.id)
+
+	// 主导航选择
+	const handleItem = (e) => {
+		setCurrent(e.key)
+	}
+
 	return (
 		<Layout className='layout-wrap'>
 			<Sider>
 				<div className={styles['logo']} />
-				{menuItem(menuList, 'dark')}
+				<Menu
+					theme='dark'
+					mode='inline'
+					selectedKeys={[current]}
+					onClick={handleItem}>
+					{menuList.map((item) => {
+						return (
+							<Menu.Item
+								key={item.key}
+								icon={item.icon && React.createElement(Icons[item.icon])}>
+								<Link to={item.path}>{item.title}</Link>
+							</Menu.Item>
+						)
+					})}
+				</Menu>
 			</Sider>
 			<Layout>
 				<Header className='header-wrap'>

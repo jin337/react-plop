@@ -57,11 +57,11 @@ const menuItem = (data) => {
 const System = (props) => {
 	const [current, setCurrent] = useState(props.match.params.id)
 
-	// 返回
+	// 返回首页
 	const backHome = () => {
-		props.history.replace('/home')
+		props.history.replace('/home/index')
 	}
-
+	// 导航选择
 	const handleItem = (e) => {
 		setCurrent(e.key)
 	}

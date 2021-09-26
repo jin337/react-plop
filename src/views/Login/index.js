@@ -47,7 +47,7 @@ const Login = (props) => {
 			}
 		}
 		if (isBool) {
-			props.history.replace('/home')
+			props.history.replace('/home/index')
 		}
 	}
 

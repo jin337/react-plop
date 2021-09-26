@@ -61,7 +61,7 @@ const Feedback = (props) => {
 
 	const [form] = Form.useForm()
 
-	// 重置
+	// 重置表单
 	const onReset = () => {
 		setImgUrl(null)
 		form.resetFields()
@@ -93,8 +93,9 @@ const Feedback = (props) => {
 		}
 	}
 
+	// 返回首页
 	const backHome = () => {
-		props.history.replace('/home')
+		props.history.replace('/home/index')
 	}
 
 	return (
