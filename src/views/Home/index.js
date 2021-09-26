@@ -78,13 +78,13 @@ const newsList = [
 		key: 1,
 		title: '未读消息',
 		icon: 'BulbOutlined',
-		path: '/news',
+		path: '/news/unread',
 	},
 	{
 		key: 2,
 		title: '已读消息',
 		icon: 'BarsOutlined',
-		path: '/news',
+		path: '/news/read',
 	},
 ]
 // 设置列表
