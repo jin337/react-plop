@@ -15,7 +15,7 @@ import {
 import {
 	LoadingOutlined,
 	PlusOutlined,
-	CloseCircleOutlined,
+	CloseCircleFilled,
 } from '@ant-design/icons'
 
 const { Header, Footer, Content } = Layout
@@ -101,7 +101,7 @@ const Feedback = (props) => {
 		<Layout className='layout-wrap'>
 			<Header className='header-wrap'>
 				<div>Header</div>
-				<CloseCircleOutlined className={styles['icon']} onClick={backHome} />
+				<CloseCircleFilled className={styles['icon']} onClick={backHome} />
 			</Header>
 			<Content className='content-wrap'>
 				<Form

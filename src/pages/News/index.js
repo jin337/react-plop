@@ -3,7 +3,7 @@ import React from 'react'
 import { Layout, Menu, Avatar, Tag, Divider, Space } from 'antd'
 import * as Icons from '@ant-design/icons'
 import {
-	CloseCircleOutlined,
+	CloseCircleFilled,
 	UserOutlined,
 	BellOutlined,
 } from '@ant-design/icons'
@@ -18,7 +18,7 @@ const menuList = [
 	},
 	{
 		title: '已读消息',
-		icon: 'BulbOutlined',
+		icon: 'BulbFilled',
 	},
 ]
 
@@ -55,12 +55,15 @@ const System = (props) => {
 		<Layout className='layout-wrap'>
 			<Header className='header-wrap'>
 				<div>Header</div>
-				<CloseCircleOutlined className={styles['icon']} onClick={backHome} />
+				<CloseCircleFilled className={styles['icon']} onClick={backHome} />
 			</Header>
 			<Layout className={styles['content-layout']}>
 				<Sider className={styles['content-sider']}>
 					<div className={styles['user-wrap']}>
-						<Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />
+						<Avatar
+							size={64}
+							src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+						/>
 						<Tag icon={<UserOutlined />} color='blue'>
 							Admin
 						</Tag>

@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import { Layout, Button, Steps, Form, Input, Slider } from 'antd'
-import { CloseCircleOutlined } from '@ant-design/icons'
+import { CloseCircleFilled } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 
 const { Step } = Steps
@@ -41,7 +41,7 @@ const Resetpwd = (props) => {
 		<Layout className='layout-wrap'>
 			<Header className='header-wrap'>
 				<div>Header</div>
-				<CloseCircleOutlined className={styles['icon']} onClick={backHome} />
+				<CloseCircleFilled className={styles['icon']} onClick={backHome} />
 			</Header>
 			<Content className='content-wrap'>
 				<div className={styles['container']}>
