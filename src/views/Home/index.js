@@ -27,7 +27,7 @@ const { Header, Content, Sider } = Layout
 // 导航列表
 const menuList = [
 	{
-		key: 1,
+		key: 'index',
 		title: '首页',
 		icon: 'HomeOutlined',
 		path: '/home/index',
