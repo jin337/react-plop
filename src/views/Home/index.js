@@ -23,7 +23,6 @@ import {
 } from '@ant-design/icons'
 
 const { Header, Content, Sider } = Layout
-const { SubMenu } = Menu
 
 // 导航列表
 const menuList = [
@@ -34,16 +33,6 @@ const menuList = [
 	{
 		title: '商品',
 		icon: 'AppstoreOutlined',
-		children: [
-			{
-				title: '品类管理',
-				icon: 'BarsOutlined',
-			},
-			{
-				title: '商品管理',
-				icon: 'ToolOutlined',
-			},
-		],
 	},
 	{
 		title: '用户管理',
@@ -56,20 +45,6 @@ const menuList = [
 	{
 		title: '图形图表',
 		icon: 'AreaChartOutlined',
-		children: [
-			{
-				title: '柱形图',
-				icon: 'BarChartOutlined',
-			},
-			{
-				title: '折线图',
-				icon: 'LineChartOutlined',
-			},
-			{
-				title: '饼图',
-				icon: 'PieChartOutlined',
-			},
-		],
 	},
 ]
 // 消息列表
@@ -88,36 +63,41 @@ const newsList = [
 	},
 ]
 // 设置列表
-const settingList = [
+const systemList = [
 	{
+		key: 'role',
 		title: '角色管理',
 		icon: 'IdcardFilled',
+		path: '/system/role',
 		dec: '这里是角色管理',
-		path: '/system',
 	},
 	{
+		key: 'staff',
 		title: '员工管理',
 		icon: 'ScheduleFilled',
+		path: '/system/staff',
 		dec: '这里是员工管理',
-		path: '/system',
 	},
 	{
+		key: 'mechanism',
 		title: '机构管理',
 		icon: 'LayoutFilled',
+		path: '/system/mechanism',
 		dec: '这里是机构管理',
-		path: '/system',
 	},
 	{
+		key: 'building',
 		title: '大楼管理',
 		icon: 'DatabaseFilled',
+		path: '/system/building',
 		dec: '这里是大楼管理',
-		path: '/system',
 	},
 	{
+		key: 'dictionaries',
 		title: '字典管理',
 		icon: 'ReadFilled',
+		path: '/system/dictionaries',
 		dec: '这里是字典管理',
-		path: '/system',
 	},
 ]
 // 个人中心列表
@@ -134,18 +114,15 @@ const userList = [
 	},
 ]
 // 单行下拉导航模板
-const menu = (data) => {
+const menuItem = (data, theme) => {
 	return (
-		<Menu>
+		<Menu theme={theme} mode='inline'>
 			{data.map((item) => {
 				return (
 					<Menu.Item
 						key={item.key}
 						icon={item.icon && React.createElement(Icons[item.icon])}>
-						<Link to={item.path}>
-							{item.title}
-							{item.dec && <div className={styles['dec']}>{item.dec}</div>}
-						</Link>
+						<Link to={item.path}>{item.title}</Link>
 					</Menu.Item>
 				)
 			})}
@@ -174,38 +151,13 @@ const MenuGroup = (data) => {
 		</Menu>
 	)
 }
-// 导航模板
-const menuItem = (data) => {
-	return data.map((item) => {
-		if (!item.children) {
-			return (
-				<Menu.Item
-					key={item.title}
-					icon={item.icon && React.createElement(Icons[item.icon])}>
-					{item.title}
-				</Menu.Item>
-			)
-		} else {
-			return (
-				<SubMenu
-					key={item.title}
-					title={item.title}
-					icon={item.icon && React.createElement(Icons[item.icon])}>
-					{menuItem(item.children)}
-				</SubMenu>
-			)
-		}
-	})
-}
 
 const Home = () => {
 	return (
 		<Layout className='layout-wrap'>
 			<Sider>
 				<div className={styles['logo']} />
-				<Menu theme='dark' mode='inline'>
-					{menuItem(menuList)}
-				</Menu>
+				{menuItem(menuList, 'dark')}
 			</Sider>
 			<Layout>
 				<Header className='header-wrap'>
@@ -217,18 +169,18 @@ const Home = () => {
 										<MailOutlined style={{ fontSize: '20px' }} />
 									</Link>
 								</Tooltip>
-								<Dropdown overlay={menu(newsList)} placement='bottomCenter'>
+								<Dropdown overlay={menuItem(newsList)} placement='bottomCenter'>
 									<Badge count={5}>
 										<BellOutlined style={{ fontSize: '20px' }} />
 									</Badge>
 								</Dropdown>
 								<Dropdown
-									overlay={MenuGroup(settingList)}
+									overlay={MenuGroup(systemList)}
 									placement='bottomCenter'>
 									<SettingOutlined style={{ fontSize: '20px' }} />
 								</Dropdown>
 								<Divider type='vertical' />
-								<Dropdown overlay={menu(userList)} placement='bottomRight'>
+								<Dropdown overlay={menuItem(userList)} placement='bottomRight'>
 									<div className={styles['user-wrap']}>
 										<Avatar icon={<UserOutlined />} />
 										<span className={styles['user-name']}>user</span>
