@@ -86,7 +86,7 @@ const Login = (props) => {
 										<Form.Item name='remember' valuePropName='checked' noStyle>
 											<Checkbox>记住密码</Checkbox>
 										</Form.Item>
-										<Button type='text' size='small'>
+										<Button type='text' size='small' href='/resetpwd/forget'>
 											找回密码
 										</Button>
 									</div>

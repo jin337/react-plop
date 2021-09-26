@@ -123,14 +123,9 @@ const settingList = [
 // 个人中心列表
 const userList = [
 	{
-		key: 1,
-		title: '基础资料',
-		path: '/',
-	},
-	{
 		key: 2,
 		title: '修改密码',
-		path: '/',
+		path: '/resetpwd/edit',
 	},
 	{
 		key: 3,

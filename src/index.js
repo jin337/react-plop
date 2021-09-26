@@ -14,7 +14,7 @@ import Home from './pages/Home'
 import System from './pages/System'
 import Feedback from './pages/Feedback'
 import News from './pages/News'
-import Forget from './pages/Forget'
+import Resetpwd from './pages/Resetpwd'
 // append import
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
 				<Route path='/system' component={System} />
 				<Route path='/feedback' component={Feedback} />
 				<Route path='/news' component={News} />
-				<Route path='/forget' component={Forget} />
+				<Route path='/resetpwd/:id' component={Resetpwd} />
 				{/* append Route */}
 			</Switch>
 		</Router>
