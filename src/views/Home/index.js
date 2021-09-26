@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import {
 	Layout,
 	Menu,
@@ -21,6 +21,9 @@ import {
 	SettingOutlined,
 	UserOutlined,
 } from '@ant-design/icons'
+
+// 路由引入
+import Index from '../../pages/Home/Index'
 
 const { Header, Content, Sider } = Layout
 
@@ -162,6 +165,15 @@ const MenuGroup = (data) => {
 	)
 }
 
+// 嵌套页面
+const Pages = () => {
+	return (
+		<>
+			<Route path='/home/index' component={Index} />
+		</>
+	)
+}
+
 const Home = (props) => {
 	const [current, setCurrent] = useState(props.match.params.id)
 
@@ -222,7 +234,7 @@ const Home = (props) => {
 					</Row>
 				</Header>
 				<Content className='content-wrap'>
-					<div>content</div>
+					<Pages />
 				</Content>
 			</Layout>
 		</Layout>
