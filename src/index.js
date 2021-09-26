@@ -9,12 +9,12 @@ import './assets/css/reset.css'
 import zhCN from 'antd/lib/locale/zh_CN'
 import { ConfigProvider } from 'antd'
 
-import Login from './pages/Login'
-import Home from './pages/Home'
-import System from './pages/System'
-import Feedback from './pages/Feedback'
-import News from './pages/News'
-import Resetpwd from './pages/Resetpwd'
+import Login from './views/Login'
+import Home from './views/Home'
+import System from './views/System'
+import Feedback from './views/Feedback'
+import News from './views/News'
+import Resetpwd from './views/Resetpwd'
 // append import
 
 const App = () => {

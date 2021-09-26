@@ -1,5 +1,6 @@
 import styles from './index.module.scss'
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout, Menu, Avatar, Tag, Divider, Space } from 'antd'
 import * as Icons from '@ant-design/icons'
 import {
@@ -7,6 +8,10 @@ import {
 	UserOutlined,
 	BellOutlined,
 } from '@ant-design/icons'
+
+import Unread from 'module'
+import Read from 'module'
+
 const { Header, Content, Sider } = Layout
 const { SubMenu } = Menu
 
@@ -15,10 +20,12 @@ const menuList = [
 	{
 		title: '未读消息',
 		icon: 'AlertFilled',
+		path: '/news/unread',
 	},
 	{
 		title: '已读消息',
 		icon: 'BulbFilled',
+		path: '/news/read',
 	},
 ]
 
@@ -44,6 +51,17 @@ const menuItem = (data) => {
 			)
 		}
 	})
+}
+
+const Pages = () => {
+	return (
+		<Router>
+			<Switch>
+				<Route path='/news/unread' component={Unread} />
+				<Route path='/news/read' component={Read} />
+			</Switch>
+		</Router>
+	)
 }
 
 const System = (props) => {
@@ -79,7 +97,7 @@ const System = (props) => {
 					</Menu>
 				</Sider>
 				<Content className={styles['content-wrap']}>
-					<div>content</div>
+					<Pages />
 				</Content>
 			</Layout>
 		</Layout>
