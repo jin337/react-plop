@@ -14,6 +14,8 @@ import Home from './pages/Home'
 import System from './pages/System'
 import Feedback from './pages/Feedback'
 import News from './pages/News'
+import Forget from './pages/Forget'
+// append import
 
 const App = () => {
 	return (
@@ -24,6 +26,8 @@ const App = () => {
 				<Route path='/system' component={System} />
 				<Route path='/feedback' component={Feedback} />
 				<Route path='/news' component={News} />
+				<Route path='/forget' component={Forget} />
+				{/* append Route */}
 			</Switch>
 		</Router>
 	)
