@@ -10,7 +10,7 @@ module.exports = (plop) => {
 					if (/([A-Z][a-z]+)+/.test(value)) {
 						return true
 					}
-					return '组件名称必须为驼峰形式'
+					return '首字母需大写'
 				},
 				default: 'pages/Demo',
 			},
@@ -34,31 +34,6 @@ module.exports = (plop) => {
 					templateFile: 'plop/temp.scss.hbs',
 					data: {
 						moduleScssName: moduleName.toLowerCase(),
-					},
-				},
-				{
-					type: 'modify',
-					path: 'src/index.js',
-					transform(fileContents, data) {
-						let name = data.filteName.split('/')
-						let moduleName = name[name.length - 1]
-						return fileContents.replace(
-							'// append import',
-							`import ${moduleName} from './${data.filteName}'\n// append import`
-						)
-					},
-				},
-				{
-					type: 'modify',
-					path: 'src/index.js',
-					transform(fileContents, data) {
-						let name = data.filteName.split('/')
-						let moduleName = name[name.length - 1]
-						let path = moduleName.toLowerCase()
-						return fileContents.replace(
-							'{/* append Route */}',
-							`<Route path='/${path}' component={${moduleName}} />\n				{/* append Route */}`
-						)
 					},
 				},
 			]

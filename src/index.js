@@ -16,7 +16,6 @@ import Feedback from './views/Feedback'
 import News from './views/News'
 import Resetpwd from './views/Resetpwd'
 import Notfound from './views/Notfound'
-// append import
 
 const App = () => {
 	return (
@@ -29,7 +28,6 @@ const App = () => {
 				<Route path='/resetpwd/:id' component={Resetpwd} />
 				<Route path='/feedback' component={Feedback} />
 				<Route component={Notfound} />
-				{/* append Route */}
 			</Switch>
 		</Router>
 	)
