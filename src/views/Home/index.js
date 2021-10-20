@@ -24,6 +24,12 @@ import {
 
 // 路由引入
 import Index from '../../pages/Home/Index'
+import Reception from '../../pages/Home/Reception'
+import Elderly from '../../pages/Home/Elderly'
+import Scheduling from '../../pages/Home/Scheduling'
+import Hospitalized from '../../pages/Home/Hospitalized'
+import LeaveHospital from '../../pages/Home/LeaveHospital'
+import Contract from '../../pages/Home/Contract'
 
 const { Header, Content, Sider } = Layout
 
@@ -31,33 +37,45 @@ const { Header, Content, Sider } = Layout
 const menuList = [
 	{
 		key: 'index',
-		title: '首页',
+		title: '系统首页',
 		icon: 'HomeOutlined',
 		path: '/home/index',
 	},
 	{
 		key: 2,
-		title: '商品',
-		icon: 'AppstoreOutlined',
-		path: '/home',
+		title: '接待管理',
+		icon: 'CrownFilled',
+		path: '/home/reception',
 	},
 	{
 		key: 3,
-		title: '用户管理',
+		title: '老人档案',
 		icon: 'UserOutlined',
-		path: '/home',
+		path: '/home/elderly',
 	},
 	{
 		key: 4,
-		title: '角色管理',
-		icon: 'SafetyCertificateOutlined',
-		path: '/home',
+		title: '排班管理',
+		icon: 'CarryOutFilled',
+		path: '/home/scheduling',
 	},
 	{
 		key: 5,
-		title: '图形图表',
-		icon: 'AreaChartOutlined',
-		path: '/home',
+		title: '入院管理',
+		icon: 'FolderAddFilled',
+		path: '/home/hospitalized',
+	},
+	{
+		key: 6,
+		title: '出院管理',
+		icon: 'FolderOpenFilled',
+		path: '/home/leave-hospital',
+	},
+	{
+		key: 7,
+		title: '合同管理',
+		icon: 'ProfileFilled',
+		path: '/home/contract',
 	},
 ]
 // 消息列表
@@ -175,6 +193,12 @@ const Pages = () => {
 	return (
 		<>
 			<Route path='/home/index' component={Index} />
+			<Route path='/home/reception' component={Reception} />
+			<Route path='/home/elderly' component={Elderly} />
+			<Route path='/home/scheduling' component={Scheduling} />
+			<Route path='/home/hospitalized' component={Hospitalized} />
+			<Route path='/home/leavehospital' component={LeaveHospital} />
+			<Route path='/home/contract' component={Contract} />
 		</>
 	)
 }
