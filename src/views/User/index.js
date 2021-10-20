@@ -11,45 +11,31 @@ import {
 } from '@ant-design/icons'
 
 // 路由引入
-import Role from '../../pages/System/Role'
-import Staff from '../../pages/System/Staff'
-import Mechanism from '../../pages/System/Mechanism'
-import Building from '../../pages/System/Building'
-import Dictionaries from '../../pages/System/Dictionaries'
+import Edit from '../../pages/User/Edit'
+import Resetpwd from '../../pages/User/Resetpwd'
+import Feedback from '../../pages/User/Feedback'
 
 const { Header, Content, Sider } = Layout
 
 // 导航列表
 const menuList = [
 	{
-		key: 'role',
-		title: '角色管理',
-		icon: 'ScheduleFilled',
-		path: '/system/role',
-	},
-	{
-		key: 'staff',
-		title: '员工管理',
+		key: 'edit',
+		title: '个人资料',
 		icon: 'IdcardFilled',
-		path: '/system/staff',
+		path: '/user/edit',
 	},
 	{
-		key: 'mechanism',
-		title: '机构管理',
-		icon: 'BuildFilled',
-		path: '/system/mechanism',
+		key: 'resetpwd',
+		title: '修改密码',
+		icon: 'EditFilled',
+		path: '/user/resetpwd',
 	},
 	{
-		key: 'building',
-		title: '大楼管理',
-		icon: 'DatabaseFilled',
-		path: '/system/building',
-	},
-	{
-		key: 'dictionaries',
-		title: '字典管理',
-		icon: 'ReadFilled',
-		path: '/system/dictionaries',
+		key: 'feedback',
+		title: '意见反馈',
+		icon: 'MailFilled',
+		path: '/user/feedback',
 	},
 ]
 
@@ -57,11 +43,9 @@ const menuList = [
 const Pages = () => {
 	return (
 		<>
-			<Route path='/system/role' component={Role} />
-			<Route path='/system/staff' component={Staff} />
-			<Route path='/system/mechanism' component={Mechanism} />
-			<Route path='/system/building' component={Building} />
-			<Route path='/system/dictionaries' component={Dictionaries} />
+			<Route path='/user/edit' component={Edit} />
+			<Route path='/user/resetpwd' component={Resetpwd} />
+			<Route path='/user/feedback' component={Feedback} />
 		</>
 	)
 }
@@ -79,7 +63,7 @@ const menuItem = (data) => {
 	})
 }
 
-const System = (props) => {
+const User = (props) => {
 	const [current, setCurrent] = useState(props.match.params.id)
 
 	// 返回首页
@@ -111,7 +95,7 @@ const System = (props) => {
 					<Divider orientation='left'>
 						<Space>
 							<SettingOutlined />
-							<span>设置管理</span>
+							<span>个人管理</span>
 						</Space>
 					</Divider>
 					<Menu
@@ -130,4 +114,4 @@ const System = (props) => {
 	)
 }
 
-export default System
+export default User

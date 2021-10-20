@@ -116,9 +116,14 @@ const systemList = [
 // 个人中心列表
 const userList = [
 	{
+		key: 1,
+		title: '个人资料',
+		path: '/user/edit',
+	},
+	{
 		key: 2,
 		title: '修改密码',
-		path: '/resetpwd/edit',
+		path: '/user/resetpwd',
 	},
 	{
 		key: 3,
@@ -208,7 +213,7 @@ const Home = (props) => {
 						<Col span={12} offset={12}>
 							<Space size={40} className={styles['space-wrap']}>
 								<Tooltip title='意见反馈'>
-									<Link to='/feedback'>
+									<Link to='/user/feedback'>
 										<MailOutlined style={{ fontSize: '20px' }} />
 									</Link>
 								</Tooltip>

@@ -12,8 +12,8 @@ import { ConfigProvider } from 'antd'
 import Login from './views/Login'
 import Home from './views/Home'
 import System from './views/System'
-import Feedback from './views/Feedback'
 import News from './views/News'
+import User from './views/User'
 import Resetpwd from './views/Resetpwd'
 import Notfound from './views/Notfound'
 
@@ -25,8 +25,8 @@ const App = () => {
 				<Route path='/home/:id' component={Home} />
 				<Route path='/system/:id' component={System} />
 				<Route path='/news/:id' component={News} />
+				<Route path='/user/:id' component={User} />
 				<Route path='/resetpwd/:id' component={Resetpwd} />
-				<Route path='/feedback' component={Feedback} />
 				<Route component={Notfound} />
 			</Switch>
 		</Router>
