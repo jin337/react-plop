@@ -12,6 +12,7 @@ import {
 	Badge,
 	Avatar,
 	Divider,
+	Image,
 } from 'antd'
 
 import * as Icons from '@ant-design/icons'
@@ -42,37 +43,37 @@ const menuList = [
 		path: '/home/index',
 	},
 	{
-		key: 2,
+		key: 'reception',
 		title: '接待管理',
 		icon: 'CrownFilled',
 		path: '/home/reception',
 	},
 	{
-		key: 3,
+		key: 'elderly',
 		title: '老人档案',
 		icon: 'UserOutlined',
 		path: '/home/elderly',
 	},
 	{
-		key: 4,
+		key: 'scheduling',
 		title: '排班管理',
 		icon: 'CarryOutFilled',
 		path: '/home/scheduling',
 	},
 	{
-		key: 5,
+		key: 'hospitalized',
 		title: '入院管理',
 		icon: 'FolderAddFilled',
 		path: '/home/hospitalized',
 	},
 	{
-		key: 6,
+		key: 'leave-hospital',
 		title: '出院管理',
 		icon: 'FolderOpenFilled',
 		path: '/home/leave-hospital',
 	},
 	{
-		key: 7,
+		key: 'contract',
 		title: '合同管理',
 		icon: 'ProfileFilled',
 		path: '/home/contract',
@@ -197,7 +198,7 @@ const Pages = () => {
 			<Route path='/home/elderly' component={Elderly} />
 			<Route path='/home/scheduling' component={Scheduling} />
 			<Route path='/home/hospitalized' component={Hospitalized} />
-			<Route path='/home/leavehospital' component={LeaveHospital} />
+			<Route path='/home/leave-hospital' component={LeaveHospital} />
 			<Route path='/home/contract' component={Contract} />
 		</>
 	)
@@ -214,10 +215,18 @@ const Home = (props) => {
 	return (
 		<Layout className='layout-wrap'>
 			<Sider>
-				<div className={styles['logo']} />
+				<div className={styles['logo']}>
+					<Image
+						className={styles['cover']}
+						preview={false}
+						src='https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg'
+					/>
+					<div className={styles['name']}>xxx管理系统</div>
+				</div>
 				<Menu
 					theme='dark'
 					mode='inline'
+					className={styles['menu-wrap']}
 					selectedKeys={[current]}
 					onClick={handleItem}>
 					{menuList.map((item) => {
