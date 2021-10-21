@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 const ShowLabel = (key) => <div className={styles['txt']}>{key}</div>
 
 // 多条
-const ShowList = (list, activeKey, onChange) => {
+const ShowList = (list, activeKey = 0, onChange) => {
 	const [select, setSelect] = useState(list[activeKey])
 	// 选择
 	const changeSelect = (item, index) => {

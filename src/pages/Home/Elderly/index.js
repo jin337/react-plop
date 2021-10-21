@@ -1,9 +1,10 @@
 import styles from './index.module.scss'
+import WrapTitle from '../../../components/WrapTitle'
 
 const Elderly = (props) => {
 	return (
 		<div className={styles['elderly-wrap']}>
-			<div>Elderly</div>
+			<WrapTitle>老人列表</WrapTitle>
 		</div>
 	)
 }
