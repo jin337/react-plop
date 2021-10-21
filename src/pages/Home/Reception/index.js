@@ -1,9 +1,10 @@
 import styles from './index.module.scss'
+import WrapTitle from '../../../components/WrapTitle'
 
 const Reception = (props) => {
 	return (
 		<div className={styles['reception-wrap']}>
-			<div>Reception</div>
+			<WrapTitle>接待管理</WrapTitle>
 		</div>
 	)
 }

@@ -1,14 +1,28 @@
 import styles from './index.module.scss'
-import { Menu } from 'antd'
-const { SubMenu } = Menu
+import WrapTitle from '../../../components/WrapTitle'
+import { useState } from 'react'
+
+const titleData = [
+	{
+		label: '入院申请',
+	},
+	{
+		label: '入院评估',
+	},
+	{
+		label: '入院审核',
+	},
+]
 
 const Hospitalized = (props) => {
+	const [activeKey, setActiveKey] = useState(0)
+
 	return (
 		<div className={styles['hospitalized-wrap']}>
-			<Menu mode='horizontal'>
-				<Menu.Item key='mail'>Navigation One</Menu.Item>
-				<Menu.Item key='mail1'>Navigation two</Menu.Item>
-			</Menu>
+			<WrapTitle
+				data={titleData}
+				activeKey={activeKey}
+				onChange={setActiveKey}></WrapTitle>
 		</div>
 	)
 }

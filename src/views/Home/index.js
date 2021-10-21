@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import React, { useState } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import {
 	Layout,
 	Menu,
@@ -24,6 +24,7 @@ import {
 } from '@ant-design/icons'
 
 // 路由引入
+import Notfound from '../Notfound'
 import Index from '../../pages/Home/Index'
 import Reception from '../../pages/Home/Reception'
 import Elderly from '../../pages/Home/Elderly'
@@ -192,7 +193,7 @@ const MenuGroup = (data) => {
 // 嵌套页面
 const Pages = () => {
 	return (
-		<>
+		<Switch>
 			<Route path='/home/index' component={Index} />
 			<Route path='/home/reception' component={Reception} />
 			<Route path='/home/elderly' component={Elderly} />
@@ -200,17 +201,13 @@ const Pages = () => {
 			<Route path='/home/hospitalized' component={Hospitalized} />
 			<Route path='/home/leave-hospital' component={LeaveHospital} />
 			<Route path='/home/contract' component={Contract} />
-		</>
+			<Route component={Notfound} />
+		</Switch>
 	)
 }
 
 const Home = (props) => {
 	const [current, setCurrent] = useState(props.match.params.id)
-
-	// 主导航选择
-	const handleItem = (e) => {
-		setCurrent(e.key)
-	}
 
 	return (
 		<Layout className='layout-wrap'>
@@ -228,7 +225,7 @@ const Home = (props) => {
 					mode='inline'
 					className={styles['menu-wrap']}
 					selectedKeys={[current]}
-					onClick={handleItem}>
+					onClick={(e) => setCurrent(e.key)}>
 					{menuList.map((item) => {
 						return (
 							<Menu.Item

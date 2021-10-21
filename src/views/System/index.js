@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 import React, { useState } from 'react'
 import { Layout, Menu, Avatar, Tag, Divider, Space } from 'antd'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 
 import * as Icons from '@ant-design/icons'
 import {
@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons'
 
 // 路由引入
+import Notfound from '../Notfound'
 import Role from '../../pages/System/Role'
 import Staff from '../../pages/System/Staff'
 import Mechanism from '../../pages/System/Mechanism'
@@ -56,13 +57,14 @@ const menuList = [
 // 嵌套页面
 const Pages = () => {
 	return (
-		<>
+		<Switch>
 			<Route path='/system/role' component={Role} />
 			<Route path='/system/staff' component={Staff} />
 			<Route path='/system/mechanism' component={Mechanism} />
 			<Route path='/system/building' component={Building} />
 			<Route path='/system/dictionaries' component={Dictionaries} />
-		</>
+			<Route component={Notfound} />
+		</Switch>
 	)
 }
 
@@ -85,10 +87,6 @@ const System = (props) => {
 	// 返回首页
 	const backHome = () => {
 		props.history.replace('/home/index')
-	}
-	// 导航选择
-	const handleItem = (e) => {
-		setCurrent(e.key)
 	}
 
 	return (
@@ -118,7 +116,7 @@ const System = (props) => {
 						mode='inline'
 						className={styles['menu-wrap']}
 						selectedKeys={[current]}
-						onClick={handleItem}>
+						onClick={(e) => setCurrent(e.key)}>
 						{menuItem(menuList)}
 					</Menu>
 				</Sider>

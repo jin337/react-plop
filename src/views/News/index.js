@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import React, { useState } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import { Layout, Menu, Avatar, Tag, Divider, Space } from 'antd'
 import * as Icons from '@ant-design/icons'
 import {
@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons'
 
 // 路由引入
+import Notfound from '../Notfound'
 import Unread from '../../pages/News/Unread'
 import Read from '../../pages/News/Read'
 
@@ -34,10 +35,11 @@ const menuList = [
 // 嵌套页面
 const Pages = () => {
 	return (
-		<>
+		<Switch>
 			<Route path='/news/unread' component={Unread} />
 			<Route path='/news/read' component={Read} />
-		</>
+			<Route component={Notfound} />
+		</Switch>
 	)
 }
 
@@ -60,10 +62,6 @@ const System = (props) => {
 	// 返回首页
 	const backHome = () => {
 		props.history.replace('/home/index')
-	}
-	// 导航选择
-	const handleItem = (e) => {
-		setCurrent(e.key)
 	}
 
 	return (
@@ -93,7 +91,7 @@ const System = (props) => {
 						mode='inline'
 						className={styles['menu-wrap']}
 						selectedKeys={[current]}
-						onClick={handleItem}>
+						onClick={(e) => setCurrent(e.key)}>
 						{menuItem(menuList)}
 					</Menu>
 				</Sider>
