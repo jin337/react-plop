@@ -1,9 +1,10 @@
 import styles from './index.module.scss'
+import WrapTitle from '../../../components/WrapTitle'
 
 const Staff = (props) => {
 	return (
 		<div className={styles['staff-wrap']}>
-			<div>Staff</div>
+			<WrapTitle>员工列表</WrapTitle>
 		</div>
 	)
 }

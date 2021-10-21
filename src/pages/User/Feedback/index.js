@@ -1,4 +1,5 @@
 import styles from './index.module.scss'
+import WrapTitle from '../../../components/WrapTitle'
 import { useState } from 'react'
 import { Form, Input, Button, Radio, Upload, message, Image, Space } from 'antd'
 
@@ -79,54 +80,57 @@ const Feedback = (props) => {
 	}
 
 	return (
-		<Form
-			className={styles['form-wrap']}
-			size='large'
-			form={form}
-			initialValues={formData}>
-			<Form.Item label='类别' name='name1' rules={rules.name1}>
-				<Radio.Group>
-					<Radio value={1}>A</Radio>
-					<Radio value={2}>B</Radio>
-					<Radio value={3}>C</Radio>
-					<Radio value={4}>D</Radio>
-				</Radio.Group>
-			</Form.Item>
-			<Form.Item label='说明' name='name2' rules={rules.name2}>
-				<TextArea rows={3} />
-			</Form.Item>
-			<Form.Item
-				label='图片'
-				name='name3'
-				rules={rules.name3}
-				valuePropName='name3'>
-				<Upload
-					listType='picture-card'
-					showUploadList={false}
-					action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
-					beforeUpload={beforeUpload}
-					onChange={handleChange}>
-					{imgUrl ? (
-						<Image preview={false} src={imgUrl} />
-					) : (
-						<div>{loading ? <LoadingOutlined /> : <PlusOutlined />}</div>
-					)}
-				</Upload>
-			</Form.Item>
-			<Form.Item
-				wrapperCol={{
-					offset: 1,
-				}}>
-				<Space>
-					<Button type='primary' htmlType='submit'>
-						提交
-					</Button>
-					<Button htmlType='button' onClick={onReset}>
-						重置
-					</Button>
-				</Space>
-			</Form.Item>
-		</Form>
+		<div className={styles['feedback-wrap']}>
+			<WrapTitle>意见反馈</WrapTitle>
+			<Form
+				className={styles['form-wrap']}
+				size='large'
+				form={form}
+				initialValues={formData}>
+				<Form.Item label='类别' name='name1' rules={rules.name1}>
+					<Radio.Group>
+						<Radio value={1}>A</Radio>
+						<Radio value={2}>B</Radio>
+						<Radio value={3}>C</Radio>
+						<Radio value={4}>D</Radio>
+					</Radio.Group>
+				</Form.Item>
+				<Form.Item label='说明' name='name2' rules={rules.name2}>
+					<TextArea rows={3} />
+				</Form.Item>
+				<Form.Item
+					label='图片'
+					name='name3'
+					rules={rules.name3}
+					valuePropName='name3'>
+					<Upload
+						listType='picture-card'
+						showUploadList={false}
+						action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+						beforeUpload={beforeUpload}
+						onChange={handleChange}>
+						{imgUrl ? (
+							<Image preview={false} src={imgUrl} />
+						) : (
+							<div>{loading ? <LoadingOutlined /> : <PlusOutlined />}</div>
+						)}
+					</Upload>
+				</Form.Item>
+				<Form.Item
+					wrapperCol={{
+						offset: 1,
+					}}>
+					<Space>
+						<Button type='primary' htmlType='submit'>
+							提交
+						</Button>
+						<Button htmlType='button' onClick={onReset}>
+							重置
+						</Button>
+					</Space>
+				</Form.Item>
+			</Form>
+		</div>
 	)
 }
 

@@ -16,13 +16,16 @@ const titleData = [
 
 const Hospitalized = (props) => {
 	const [activeKey, setActiveKey] = useState(0)
+	const changeActive = (e) => {
+		console.log(e)
+	}
 
 	return (
 		<div className={styles['hospitalized-wrap']}>
 			<WrapTitle
 				data={titleData}
 				activeKey={activeKey}
-				onChange={setActiveKey}></WrapTitle>
+				onChange={changeActive}></WrapTitle>
 		</div>
 	)
 }

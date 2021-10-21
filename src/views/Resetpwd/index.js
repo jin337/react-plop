@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { Layout, Button, Steps, Form, Input, Slider } from 'antd'
+import { Layout, Button, Steps, Form, Input } from 'antd'
 import { CloseCircleFilled } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 
@@ -21,7 +21,6 @@ const Resetpwd = (props) => {
 	const [current, setCurrent] = useState(0)
 	const [formData] = useState({
 		mobile: null,
-		check: 0,
 	})
 
 	// 返回上一页
@@ -65,9 +64,6 @@ const Resetpwd = (props) => {
 						initialValues={formData}>
 						<Form.Item name='mobile' rules={rules.mobile}>
 							<Input placeholder='请输入手机号' allowClear />
-						</Form.Item>
-						<Form.Item name='check' rules={rules.check}>
-							<Slider className={styles['slider-wrap']} tipFormatter={null} />
 						</Form.Item>
 						<Form.Item>
 							<Button type='primary' block htmlType='submit'>
